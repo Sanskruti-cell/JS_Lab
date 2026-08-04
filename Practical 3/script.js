@@ -1,84 +1,121 @@
-function calculateGrade() {
+function validate(){
 
-    let name = document.getElementById("name").value.trim();
-    let marks = document.getElementById("marks").value;
-    let result = document.getElementById("result");
+    let username = document.getElementById("username").value.trim();
 
-    // Form Validation
-    if (name === "") {
-        alert("Please enter your name.");
-        return;
+    let password = document.getElementById("password").value;
+
+    let message = document.getElementById("message");
+
+    let uppercase = /[A-Z]/;
+
+    let lowercase = /[a-z]/;
+
+    let number = /[0-9]/;
+
+    let special = /[!@#$%^&*(),.?":{}|<>]/;
+
+    if(username==""){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Please enter Username.";
+
     }
 
-    if (marks === "") {
-        alert("Please enter marks.");
-        return;
+    else if(username.length<5){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Username must contain at least 5 characters.";
+
     }
 
-    marks = Number(marks);
+    else if(username.includes(" ")){
 
-    if (marks < 0 || marks > 100) {
-        alert("Marks must be between 0 and 100.");
-        return;
-    }
+        message.style.color="red";
 
-    let grade;
+        message.innerHTML="❌ Username cannot contain spaces.";
 
-    // Control Structure
-    if (marks >= 90) {
-        grade = "A+";
-    }
-    else if (marks >= 80) {
-        grade = "A";
-    }
-    else if (marks >= 70) {
-        grade = "B";
-    }
-    else if (marks >= 60) {
-        grade = "C";
-    }
-    else if (marks >= 50) {
-        grade = "D";
-    }
-    else {
-        grade = "F";
     }
 
-    // Pass / Fail Status
-    let status;
-    let bgColor;
+    else if(password==""){
 
-    if (marks >= 50) {
-        status = "PASS";
-        bgColor = "#28a745"; // Green
-    } else {
-        status = "FAIL";
-        bgColor = "#dc3545"; // Red
+        message.style.color="red";
+
+        message.innerHTML="❌ Please enter Password.";
+
     }
 
-    // Display Result
-    result.innerHTML = `
-        <div style="
-            background:${bgColor};
-            color:white;
-            padding:20px;
-            border-radius:12px;
-            text-align:center;
-            box-shadow:0 5px 15px rgba(0,0,0,0.2);
-        ">
-            <h2 style="margin:0;">Grade : ${grade}</h2>
-            <h3 style="margin-top:10px;">${status}</h3>
-        </div>
+    else if(password.length<8){
 
-        <div style="
-            margin-top:20px;
-            text-align:center;
-            color:#555;
-            font-size:14px;
-        ">
-            <hr>
-            <p><strong>Made by Sanskruti</strong></p>
-            <p>PRN - 24070521008</p>
-        </div>
-    `;
+        message.style.color="red";
+
+        message.innerHTML="❌ Password must be at least 8 characters.";
+
+    }
+
+    else if(!uppercase.test(password)){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Password must contain one uppercase letter.";
+
+    }
+
+    else if(!lowercase.test(password)){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Password must contain one lowercase letter.";
+
+    }
+
+    else if(!number.test(password)){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Password must contain one number.";
+
+    }
+
+    else if(!special.test(password)){
+
+        message.style.color="red";
+
+        message.innerHTML="❌ Password must contain one special character.";
+
+    }
+
+    else{
+
+        message.style.color="green";
+
+        message.innerHTML="✅ Username and Password are Valid!";
+
+    }
+
+}
+
+function togglePassword(){
+
+    let password=document.getElementById("password");
+
+    let eye=document.querySelector(".eye");
+
+    if(password.type==="password"){
+
+        password.type="text";
+
+        eye.innerHTML="🙈"; 
+
+    }
+
+    else{
+
+        password.type="password";
+
+        eye.innerHTML="👁️";
+
+    }
+
 }
