@@ -1,121 +1,84 @@
-function validate(){
+function calculateGrade() {
 
-    let username = document.getElementById("username").value.trim();
+    let name = document.getElementById("name").value.trim();
+    let marks = document.getElementById("marks").value;
+    let result = document.getElementById("result");
 
-    let password = document.getElementById("password").value;
-
-    let message = document.getElementById("message");
-
-    let uppercase = /[A-Z]/;
-
-    let lowercase = /[a-z]/;
-
-    let number = /[0-9]/;
-
-    let special = /[!@#$%^&*(),.?":{}|<>]/;
-
-    if(username==""){
-
-        message.style.color="red";
-
-        message.innerHTML="❌ Please enter Username.";
-
+    // Form Validation
+    if (name === "") {
+        alert("Please enter your name.");
+        return;
     }
 
-    else if(username.length<5){
-
-        message.style.color="red";
-
-        message.innerHTML="❌ Username must contain at least 5 characters.";
-
+    if (marks === "") {
+        alert("Please enter marks.");
+        return;
     }
 
-    else if(username.includes(" ")){
+    marks = Number(marks);
 
-        message.style.color="red";
-
-        message.innerHTML="❌ Username cannot contain spaces.";
-
+    if (marks < 0 || marks > 100) {
+        alert("Marks must be between 0 and 100.");
+        return;
     }
 
-    else if(password==""){
+    let grade;
 
-        message.style.color="red";
-
-        message.innerHTML="❌ Please enter Password.";
-
+    // Control Structure
+    if (marks >= 90) {
+        grade = "A+";
+    }
+    else if (marks >= 80) {
+        grade = "A";
+    }
+    else if (marks >= 70) {
+        grade = "B";
+    }
+    else if (marks >= 60) {
+        grade = "C";
+    }
+    else if (marks >= 50) {
+        grade = "D";
+    }
+    else {
+        grade = "F";
     }
 
-    else if(password.length<8){
+    // Pass / Fail Status
+    let status;
+    let bgColor;
 
-        message.style.color="red";
-
-        message.innerHTML="❌ Password must be at least 8 characters.";
-
+    if (marks >= 50) {
+        status = "PASS";
+        bgColor = "#28a745"; // Green
+    } else {
+        status = "FAIL";
+        bgColor = "#dc3545"; // Red
     }
 
-    else if(!uppercase.test(password)){
+    // Display Result
+    result.innerHTML = `
+        <div style="
+            background:${bgColor};
+            color:white;
+            padding:20px;
+            border-radius:12px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        ">
+            <h2 style="margin:0;">Grade : ${grade}</h2>
+            <h3 style="margin-top:10px;">${status}</h3>
+        </div>
 
-        message.style.color="red";
-
-        message.innerHTML="❌ Password must contain one uppercase letter.";
-
-    }
-
-    else if(!lowercase.test(password)){
-
-        message.style.color="red";
-
-        message.innerHTML="❌ Password must contain one lowercase letter.";
-
-    }
-
-    else if(!number.test(password)){
-
-        message.style.color="red";
-
-        message.innerHTML="❌ Password must contain one number.";
-
-    }
-
-    else if(!special.test(password)){
-
-        message.style.color="red";
-
-        message.innerHTML="❌ Password must contain one special character.";
-
-    }
-
-    else{
-
-        message.style.color="green";
-
-        message.innerHTML="✅ Username and Password are Valid!";
-
-    }
-
-}
-
-function togglePassword(){
-
-    let password=document.getElementById("password");
-
-    let eye=document.querySelector(".eye");
-
-    if(password.type==="password"){
-
-        password.type="text";
-
-        eye.innerHTML="🙈"; 
-
-    }
-
-    else{
-
-        password.type="password";
-
-        eye.innerHTML="👁️";
-
-    }
-
+        <div style="
+            margin-top:20px;
+            text-align:center;
+            color:#555;
+            font-size:14px;
+        ">
+            <hr>
+            <p><strong>Made by Sanskruti</strong></p>
+            <p>PRN - 24070521008</p>
+        </div>
+    `;
 }
