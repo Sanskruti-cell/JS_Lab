@@ -175,3 +175,27 @@ button:hover{
     font-weight:bold;
 
 }
+
+/* ---------- Footer ---------- */
+
+hr{
+    margin-top:25px;
+    margin-bottom:20px;
+    border:0;
+    border-top:1px solid #ddd;
+}
+
+.footer{
+    text-align:center;
+}
+
+.footer h3{
+    color:#497a9a;
+    margin-bottom:10px;
+}
+
+.footer p{
+    margin:5px 0;
+    color:#444;
+    font-size:15px;
+}
