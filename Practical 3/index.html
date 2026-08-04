@@ -2,23 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Grading System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username & Password Validation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Student Grading System</h2>
 
-    <label>Student Name</label>
-    <input type="text" id="name" placeholder="Enter Name">
+    <h2>Username & Password Validation</h2>
 
-    <label>Marks</label>
-    <input type="number" id="marks" placeholder="Enter Marks">
+    <label>Username</label>
 
-    <button onclick="calculateGrade()">Check Grade</button>
+    <input
+        type="text"
+        id="username"
+        placeholder="Enter Username">
 
-    <h3 id="result"></h3>
+    <label>Password</label>
+
+    <div class="password-box">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password">
+
+        <span class="eye" onclick="togglePassword()">👁️</span>
+
+    </div>
+
+    <div class="hint">
+
+        <h4>Password must contain:</h4>
+
+        <ul>
+            <li>Minimum 8 characters</li>
+            <li>One Uppercase Letter (A-Z)</li>
+            <li>One Lowercase Letter (a-z)</li>
+            <li>One Number (0-9)</li>
+            <li>One Special Character (! @ # $ % ^ & *)</li>
+        </ul>
+
+    </div>
+
+    <button onclick="validate()">Validate</button>
+
+    <p id="message"></p>
+
 </div>
 
 <script src="script.js"></script>
