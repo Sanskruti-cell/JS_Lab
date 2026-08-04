@@ -2,200 +2,108 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
 }
 
 body{
-
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#81a6b4,#62849b);
     display:flex;
     justify-content:center;
     align-items:center;
     min-height:100vh;
-
-    background:linear-gradient(135deg,#53899d,#4f728a);
-
 }
 
 .container{
-
-    width:420px;
-
-    background:white;
-
+    width:400px;
+    background:#fff;
     padding:30px;
-
     border-radius:15px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 h2{
-
     text-align:center;
-
+    color:#222;
     margin-bottom:25px;
-
-    color:#333;
-
 }
 
 label{
-
-    font-weight:bold;
-
     display:block;
-
-    margin-top:10px;
-
     margin-bottom:8px;
-
+    font-weight:bold;
+    color:#333;
 }
 
 input{
-
     width:100%;
-
     padding:12px;
-
-    font-size:16px;
-
+    margin-bottom:18px;
     border:1px solid #ccc;
-
-    border-radius:6px;
-
-    outline:none;
-
+    border-radius:8px;
+    font-size:16px;
 }
 
 input:focus{
-
-    border:2px solid #497a9a;
-
-}
-
-.password-box{
-
-    position:relative;
-
-}
-
-.password-box input{
-
-    padding-right:45px;
-
-}
-
-.eye{
-
-    position:absolute;
-
-    right:15px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    cursor:pointer;
-
-    font-size:20px;
-
-}
-
-.hint{
-
-    margin-top:18px;
-
-    background:#f5f5f5;
-
-    padding:15px;
-
-    border-radius:10px;
-
-}
-
-.hint h4{
-
-    margin-bottom:10px;
-
-    color:#333;
-
-}
-
-.hint ul{
-
-    margin-left:20px;
-
-}
-
-.hint li{
-
-    margin:6px 0;
-
-    color:#555;
-
+    outline:none;
+    border-color:#437a9f;
+    box-shadow:0 0 5px rgba(98, 132, 154, 0.4);
 }
 
 button{
-
     width:100%;
-
-    margin-top:20px;
-
     padding:12px;
-
-    font-size:17px;
-
-    background:#6395b7;
-
+    background:#778f9e;
     color:white;
-
     border:none;
-
     border-radius:8px;
-
+    font-size:17px;
     cursor:pointer;
-
+    transition:0.3s;
 }
 
 button:hover{
-
-    background:#598db0;
-
+    background:#71a2c1;
+    transform:scale(1.02);
 }
 
-#message{
-
-    margin-top:20px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-}
-
-/* ---------- Footer ---------- */
-
-hr{
+#result{
     margin-top:25px;
-    margin-bottom:20px;
-    border:0;
-    border-top:1px solid #ddd;
-}
-
-.footer{
     text-align:center;
 }
 
-.footer h3{
-    color:#497a9a;
-    margin-bottom:10px;
+/* PASS / FAIL Card */
+#result div:first-child{
+    border-radius:12px;
+    padding:20px;
+    color:white;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
-.footer p{
+#result h2{
+    color:white;
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+#result h3{
+    font-size:24px;
+    letter-spacing:2px;
+}
+
+/* Footer */
+#result hr{
+    margin:20px 0 10px;
+    border:none;
+    border-top:1px solid #ccc;
+}
+
+#result p{
     margin:5px 0;
-    color:#444;
+    color:#555;
     font-size:15px;
+}
+
+#result p:first-of-type{
+    font-weight:bold;
+    color:#222;
 }
