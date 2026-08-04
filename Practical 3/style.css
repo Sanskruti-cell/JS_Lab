@@ -1,201 +1,121 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+function validate(){
 
-body{
+    let username = document.getElementById("username").value.trim();
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+    let password = document.getElementById("password").value;
 
-    background:linear-gradient(135deg,#53899d,#4f728a);
+    let message = document.getElementById("message");
 
-}
+    let uppercase = /[A-Z]/;
 
-.container{
+    let lowercase = /[a-z]/;
 
-    width:420px;
+    let number = /[0-9]/;
 
-    background:white;
+    let special = /[!@#$%^&*(),.?":{}|<>]/;
 
-    padding:30px;
+    if(username==""){
 
-    border-radius:15px;
+        message.style.color="red";
 
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+        message.innerHTML="❌ Please enter Username.";
 
-}
+    }
 
-h2{
+    else if(username.length<5){
 
-    text-align:center;
+        message.style.color="red";
 
-    margin-bottom:25px;
+        message.innerHTML="❌ Username must contain at least 5 characters.";
 
-    color:#333;
+    }
 
-}
+    else if(username.includes(" ")){
 
-label{
+        message.style.color="red";
 
-    font-weight:bold;
+        message.innerHTML="❌ Username cannot contain spaces.";
 
-    display:block;
+    }
 
-    margin-top:10px;
+    else if(password==""){
 
-    margin-bottom:8px;
+        message.style.color="red";
 
-}
+        message.innerHTML="❌ Please enter Password.";
 
-input{
+    }
 
-    width:100%;
+    else if(password.length<8){
 
-    padding:12px;
+        message.style.color="red";
 
-    font-size:16px;
+        message.innerHTML="❌ Password must be at least 8 characters.";
 
-    border:1px solid #ccc;
+    }
 
-    border-radius:6px;
+    else if(!uppercase.test(password)){
 
-    outline:none;
+        message.style.color="red";
 
-}
+        message.innerHTML="❌ Password must contain one uppercase letter.";
 
-input:focus{
+    }
 
-    border:2px solid #497a9a;
+    else if(!lowercase.test(password)){
 
-}
+        message.style.color="red";
 
-.password-box{
+        message.innerHTML="❌ Password must contain one lowercase letter.";
 
-    position:relative;
+    }
 
-}
+    else if(!number.test(password)){
 
-.password-box input{
+        message.style.color="red";
 
-    padding-right:45px;
+        message.innerHTML="❌ Password must contain one number.";
 
-}
+    }
 
-.eye{
+    else if(!special.test(password)){
 
-    position:absolute;
+        message.style.color="red";
 
-    right:15px;
+        message.innerHTML="❌ Password must contain one special character.";
 
-    top:50%;
+    }
 
-    transform:translateY(-50%);
+    else{
 
-    cursor:pointer;
+        message.style.color="green";
 
-    font-size:20px;
+        message.innerHTML="✅ Username and Password are Valid!";
+
+    }
 
 }
 
-.hint{
+function togglePassword(){
 
-    margin-top:18px;
+    let password=document.getElementById("password");
 
-    background:#f5f5f5;
+    let eye=document.querySelector(".eye");
 
-    padding:15px;
+    if(password.type==="password"){
 
-    border-radius:10px;
+        password.type="text";
 
-}
+        eye.innerHTML="🙈"; 
 
-.hint h4{
+    }
 
-    margin-bottom:10px;
+    else{
 
-    color:#333;
+        password.type="password";
 
-}
+        eye.innerHTML="👁️";
 
-.hint ul{
+    }
 
-    margin-left:20px;
-
-}
-
-.hint li{
-
-    margin:6px 0;
-
-    color:#555;
-
-}
-
-button{
-
-    width:100%;
-
-    margin-top:20px;
-
-    padding:12px;
-
-    font-size:17px;
-
-    background:#6395b7;
-
-    color:white;
-
-    border:none;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-}
-
-button:hover{
-
-    background:#598db0;
-
-}
-
-#message{
-
-    margin-top:20px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-}
-
-/* ---------- Footer ---------- */
-
-hr{
-    margin-top:25px;
-    margin-bottom:20px;
-    border:0;
-    border-top:1px solid #ddd;
-}
-
-.footer{
-    text-align:center;
-}
-
-.footer h3{
-    color:#497a9a;
-    margin-bottom:10px;
-}
-
-.footer p{
-    margin:5px 0;
-    color:#444;
-    font-size:15px;
 }
