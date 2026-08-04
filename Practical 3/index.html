@@ -2,65 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Username & Password Validation</title>
+    <title>Student Grading System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
+    <h2>Student Grading System</h2>
 
-    <h2>Username & Password Validation</h2>
+    <label>Student Name</label>
+    <input type="text" id="name" placeholder="Enter Name">
 
-    <label>Username</label>
+    <label>Marks</label>
+    <input type="number" id="marks" placeholder="Enter Marks">
 
-    <input
-        type="text"
-        id="username"
-        placeholder="Enter Username">
+    <button onclick="calculateGrade()">Check Grade</button>
 
-    <label>Password</label>
-
-    <div class="password-box">
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter Password">
-
-        <span class="eye" onclick="togglePassword()">👁️</span>
-
-    </div>
-
-    <div class="hint">
-
-        <h4>Password must contain:</h4>
-
-        <ul>
-            <li>Minimum 8 characters</li>
-            <li>One Uppercase Letter (A-Z)</li>
-            <li>One Lowercase Letter (a-z)</li>
-            <li>One Number (0-9)</li>
-            <li>One Special Character (! @ # $ % ^ & *)</li>
-        </ul>
-
-    </div>
-
-    <button onclick="validate()">Validate</button>
-
-    <p id="message"></p>
-
-    <hr>
-
-    <div class="footer">
-        <h3>Submitted By</h3>
-        <p><strong>Name :</strong> Sanskruti Asati</p>
-        <p><strong>PRN :</strong> 24070521008</p>
-    </div>
-
+    <h3 id="result"></h3>
 </div>
 
 <script src="script.js"></script>
 
 </body>
 </html>
+
