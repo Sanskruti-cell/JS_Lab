@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🛒 Shopping Calculator</h1>
+
+    <div class="form">
+        <input type="text" id="product" placeholder="Enter Product Name">
+
+        <input type="number" id="price" placeholder="Enter Price">
+
+        <input type="number" id="quantity" placeholder="Enter Quantity">
+
+        <button onclick="addItem()">Add Item</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price (₹)</th>
+                <th>Quantity</th>
+                <th>Total (₹)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="bill">
+
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <h3 id="subtotal">Subtotal : ₹0</h3>
+        <h3 id="gst">GST (18%) : ₹0</h3>
+        <h3 id="finalTotal">Final Total : ₹0</h3>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
