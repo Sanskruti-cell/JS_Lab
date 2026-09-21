@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Preferences</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Student Information -->
+        <div class="student-card">
+            <h2>Student Information</h2>
+            <p><strong>Name:</strong> Sanskruti Asati</p>
+            <p><strong>PRN:</strong> 24070521008</p>
+        </div>
+
+        <h1>User Preferences</h1>
+        <p class="subtitle">
+            Local Storage & Session Storage
+        </p>
+
+
+        <!-- Theme Settings -->
+        <div class="card">
+
+            <h2>Theme Settings</h2>
+
+            <div class="row">
+                <span>Website Theme</span>
+
+                <button id="themeBtn">
+                    🌙 Enable Dark Mode
+                </button>
+            </div>
+
+            <p class="info">
+                Theme preference is saved using Local Storage.
+            </p>
+
+        </div>
+
+
+        <!-- Session Preferences -->
+        <div class="card">
+
+            <h2>Session Preferences</h2>
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your name"
+            >
+
+
+            <label for="fontSize">
+                Font Size
+            </label>
+
+            <select id="fontSize">
+
+                <option value="16px">
+                    Medium
+                </option>
+
+                <option value="18px">
+                    Large
+                </option>
+
+                <option value="20px">
+                    Extra Large
+                </option>
+
+            </select>
+
+
+            <button id="saveBtn">
+                Save Preferences
+            </button>
+
+            <p id="message"></p>
+
+            <p class="info">
+                Username and font size are saved using Session Storage.
+            </p>
+
+        </div>
+
+
+        <!-- Current Preferences -->
+        <div class="card">
+
+            <h2>Current Preferences</h2>
+
+            <div class="preference-item">
+                <span>Username</span>
+                <strong id="displayName">
+                    Not set
+                </strong>
+            </div>
+
+            <div class="preference-item">
+                <span>Font Size</span>
+                <strong id="displayFont">
+                    16px
+                </strong>
+            </div>
+
+            <div class="preference-item">
+                <span>Theme</span>
+                <strong id="displayTheme">
+                    Light
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- Clear Button -->
+        <button class="clear-btn" id="clearBtn">
+            Clear Session Preferences
+        </button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
