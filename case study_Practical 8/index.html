@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            border: 1px solid #888;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #b8c9ed;
+            text-align: center;
+        }
+
+        input[type="text"],
+        select {
+            width: 95%;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 98%;
+            height: 90px;
+            padding: 6px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        .button {
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            padding: 7px 25px;
+            cursor: pointer;
+        }
+
+        /* Success Popup */
+        .success-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            border: 2px solid #4CAF50;
+            z-index: 10;
+        }
+
+        .success-box h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+
+        .success-box p {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .success-box button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .success-box button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="gymForm">
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Sex</td>
+                <td>
+                    <input type="radio" name="sex" value="Male">
+                    Male
+                    <br>
+
+                    <input type="radio" name="sex" value="Female">
+                    Female
+                </td>
+            </tr>
+
+            <tr>
+                <td>Eye color</td>
+                <td>
+                    <select id="eyeColor">
+                        <option value="">Select</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Check all that apply</td>
+                <td>
+                    <input type="checkbox" name="fitness" value="Tall">
+                    Over 6 feet tall
+                    <br>
+
+                    <input type="checkbox" name="fitness" value="Weight">
+                    Over 200 pounds
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <b>Describe your athletic ability:</b>
+                    <br><br>
+
+                    <textarea id="ability"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="button">
+                    <input type="submit" value="Enter my information">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+
+    <!-- Success Message -->
+
+    <div id="successMessage" class="success-box">
+
+        <h2>✓ Registration Successful!</h2>
+
+        <p id="result"></p>
+
+        <button onclick="closeMessage()">OK</button>
+
+    </div>
+
+
+    <script>
+
+        // Get the form
+        const form = document.getElementById("gymForm");
+
+
+        // Submit Event
+        form.addEventListener("submit", function(event) {
+
+            // Prevent page refresh
+            event.preventDefault();
+
+
+            // Get values
+            const name = document.getElementById("name").value.trim();
+
+            const eyeColor = document.getElementById("eyeColor").value;
+
+            const ability = document.getElementById("ability").value.trim();
+
+
+            // Name validation
+            if (name === "") {
+                alert("Please enter your name");
+                return;
+            }
+
+
+            // Sex validation
+            const sex = document.querySelector(
+                'input[name="sex"]:checked'
+            );
+
+            if (!sex) {
+                alert("Please select your sex");
+                return;
+            }
+
+
+            // Eye color validation
+            if (eyeColor === "") {
+                alert("Please select your eye color");
+                return;
+            }
+
+
+            // Athletic ability validation
+            if (ability === "") {
+                alert("Please describe your athletic ability");
+                return;
+            }
+
+
+            // Display success message
+            document.getElementById("result").innerHTML =
+                "Name: " + name + "<br>" +
+                "Sex: " + sex.value + "<br>" +
+                "Eye Color: " + eyeColor;
+
+
+            document.getElementById("successMessage").style.display = "block";
+
+        });
+
+
+        // Close success popup
+        function closeMessage() {
+
+            document.getElementById("successMessage").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+</html>
