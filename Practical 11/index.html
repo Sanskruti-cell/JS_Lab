@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Scheduler Countdown</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Academic Planner</p>
+          <h1>Class Scheduler</h1>
+        </div>
+        <div class="live-clock" id="liveClock" aria-live="polite">--:--:--</div>
+      </header>
+
+      <main class="layout">
+        <section class="card hero-card">
+          <p class="section-label">Next class</p>
+          <div id="nextClass" class="next-class"></div>
+        </section>
+
+        <section class="card countdown-card">
+          <p class="section-label">Time left</p>
+          <div id="countdown" class="countdown" aria-live="polite">00:00:00</div>
+        </section>
+
+        <section class="card schedule-card">
+          <p class="section-label">Today's schedule</p>
+          <ul id="scheduleList" class="schedule-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
