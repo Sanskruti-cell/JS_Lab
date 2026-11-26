@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Employee Details using JSON</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-box {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+
+        #jsonOutput {
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f5f5f5;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h2>Employee Details using JSON</h2>
+
+
+    <!-- Employee Form -->
+
+    <div class="form-box">
+
+        <label>
+            Employee ID:
+        </label>
+
+        <input
+            type="number"
+            id="employeeId"
+        >
+
+
+        <label>
+            Employee Name:
+        </label>
+
+        <input
+            type="text"
+            id="employeeName"
+        >
+
+
+        <label>
+            Department:
+        </label>
+
+        <input
+            type="text"
+            id="department"
+        >
+
+
+        <label>
+            Salary:
+        </label>
+
+        <input
+            type="number"
+            id="salary"
+        >
+
+
+        <button onclick="addEmployee()">
+            Add Employee
+        </button>
+
+        <button onclick="loadEmployees()">
+            Load Employees
+        </button>
+
+    </div>
+
+
+    <!-- JSON Output -->
+
+    <h3 style="text-align:center;">
+        JSON Data
+    </h3>
+
+    <pre id="jsonOutput"></pre>
+
+
+    <!-- Employee Table -->
+
+    <table id="employeeTable">
+
+        <thead>
+
+            <tr>
+
+                <th>Employee ID</th>
+
+                <th>Employee Name</th>
+
+                <th>Department</th>
+
+                <th>Salary</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        // Store employees
+
+        let employees = [];
+
+
+        // Add employee entered by user
+
+        async function addEmployee() {
+
+            // Get values from HTML
+
+            let id =
+                document.getElementById("employeeId").value;
+
+            let name =
+                document.getElementById("employeeName").value;
+
+            let department =
+                document.getElementById("department").value;
+
+            let salary =
+                document.getElementById("salary").value;
+
+
+            // Check empty fields
+
+            if (
+                id == "" ||
+                name == "" ||
+                department == "" ||
+                salary == ""
+            ) {
+
+                alert("Please fill all fields.");
+
+                return;
+            }
+
+
+            // Create JavaScript object
+
+            let employee = {
+
+                employeeId: Number(id),
+
+                employeeName: name,
+
+                department: department,
+
+                salary: Number(salary)
+
+            };
+
+
+            try {
+                let response = await fetch("/api/employees", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(employee)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Unable to save employee");
+                }
+
+                employees = await response.json();
+                displayEmployees();
+                document.getElementById("jsonOutput").textContent =
+                    JSON.stringify(employees, null, 4);
+
+                document.getElementById("employeeId").value = "";
+                document.getElementById("employeeName").value = "";
+                document.getElementById("department").value = "";
+                document.getElementById("salary").value = "";
+            } catch (error) {
+                console.error(error);
+                alert("Unable to save employee. Start server.js first.");
+            }
+
+        }
+
+
+        // Display employees in table
+
+        function displayEmployees() {
+
+            let tableBody =
+                document.getElementById("tableBody");
+
+
+            tableBody.innerHTML = "";
+
+
+            employees.forEach(function(employee) {
+
+                let row =
+                    document.createElement("tr");
+
+
+                row.innerHTML =
+
+                    "<td>" +
+                    employee.employeeId +
+                    "</td>" +
+
+                    "<td>" +
+                    employee.employeeName +
+                    "</td>" +
+
+                    "<td>" +
+                    employee.department +
+                    "</td>" +
+
+                    "<td>" +
+                    employee.salary +
+                    "</td>";
+
+
+                tableBody.appendChild(row);
+
+            });
+
+        }
+
+
+        // Load employees from JSON file
+
+        function loadEmployees() {
+
+                fetch("enp.json")
+
+                .then(function(response) {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Unable to load JSON file"
+                        );
+
+                    }
+
+                    return response.json();
+
+                })
+
+
+                .then(function(data) {
+
+                    // Store JSON data
+
+                    employees = data;
+
+
+                    // Display data in table
+
+                    displayEmployees();
+
+
+                    // Display JSON
+
+                    document.getElementById("jsonOutput")
+                        .textContent =
+                        JSON.stringify(
+                            data,
+                            null,
+                            4
+                        );
+
+                })
+
+
+                .catch(function(error) {
+
+                    console.log(error);
+
+                    alert(
+                        "Error loading enp.json"
+                    );
+
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
