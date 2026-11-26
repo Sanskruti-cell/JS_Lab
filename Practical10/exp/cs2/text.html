@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Music Concert Registration</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            margin-top: 8px;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 20px;
+        }
+
+        .check-group {
+            margin-top: 8px;
+        }
+
+        .check-group input {
+            width: auto;
+        }
+
+        .check-group label {
+            display: inline;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 11px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h2>Online Music Concert Registration</h2>
+
+
+    <form id="concertForm">
+
+
+        <label>
+            Full Name:
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+        >
+
+
+        <label>
+            Email:
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+        >
+
+
+        <label>
+            Phone Number:
+        </label>
+
+        <input
+            type="text"
+            id="phone"
+            placeholder="Enter phone number"
+        >
+
+
+        <label>
+            Age:
+        </label>
+
+        <input
+            type="number"
+            id="age"
+            placeholder="Enter your age"
+        >
+
+
+        <label>
+            Select Concert:
+        </label>
+
+        <select id="concert">
+
+            <option value="">
+                Select Concert
+            </option>
+
+            <option value="Rock Night">
+                Rock Night
+            </option>
+
+            <option value="Bollywood Night">
+                Bollywood Night
+            </option>
+
+            <option value="EDM Night">
+                EDM Night
+            </option>
+
+            <option value="Classical Night">
+                Classical Night
+            </option>
+
+        </select>
+
+
+        <label>
+            Preferred Language:
+        </label>
+
+        <div class="radio-group">
+
+            <input
+                type="radio"
+                name="language"
+                value="English"
+            >
+            <label>English</label>
+
+            <input
+                type="radio"
+                name="language"
+                value="Hindi"
+            >
+            <label>Hindi</label>
+
+            <input
+                type="radio"
+                name="language"
+                value="Both"
+            >
+            <label>Both</label>
+
+        </div>
+
+
+        <label>
+            Additional Options:
+        </label>
+
+        <div class="check-group">
+
+            <input
+                type="checkbox"
+                id="recording"
+            >
+
+            <label>
+                Concert Recording
+            </label>
+
+            <br>
+
+            <input
+                type="checkbox"
+                id="updates"
+            >
+
+            <label>
+                Receive Event Updates
+            </label>
+
+        </div>
+
+
+        <button type="submit">
+            Register for Concert
+        </button>
+
+
+    </form>
+
+
+    <div id="message"></div>
+
+</div>
+
+
+<script src="concert.js"></script>
+
+</body>
+
+</html>
