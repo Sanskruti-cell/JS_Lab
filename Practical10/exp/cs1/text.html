@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Technical Workshop Booking</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .radio-group {
+            margin-top: 8px;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 20px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 11px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h2>Technical Workshop Ticket Booking</h2>
+
+    <form id="workshopForm">
+
+        <label>
+            Student Name:
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+        >
+
+
+        <label>
+            Roll Number:
+        </label>
+
+        <input
+            type="text"
+            id="roll"
+            placeholder="Enter roll number"
+        >
+
+
+        <label>
+            Email:
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter email"
+        >
+
+
+        <label>
+            Phone Number:
+        </label>
+
+        <input
+            type="text"
+            id="phone"
+            placeholder="Enter phone number"
+        >
+
+
+        <label>
+            Department:
+        </label>
+
+        <select id="department">
+
+            <option value="">
+                Select Department
+            </option>
+
+            <option value="Computer Science">
+                Computer Science
+            </option>
+
+            <option value="Information Technology">
+                Information Technology
+            </option>
+
+            <option value="Electronics">
+                Electronics
+            </option>
+
+            <option value="Mechanical">
+                Mechanical
+            </option>
+
+        </select>
+
+
+        <label>
+            Workshop:
+        </label>
+
+        <select id="workshop">
+
+            <option value="">
+                Select Workshop
+            </option>
+
+            <option value="Artificial Intelligence">
+                Artificial Intelligence
+            </option>
+
+            <option value="Web Development">
+                Web Development
+            </option>
+
+            <option value="Cyber Security">
+                Cyber Security
+            </option>
+
+            <option value="Cloud Computing">
+                Cloud Computing
+            </option>
+
+        </select>
+
+
+        <label>
+            Ticket Type:
+        </label>
+
+        <div class="radio-group">
+
+            <input
+                type="radio"
+                name="ticket"
+                value="Student"
+            >
+            <label>Student</label>
+
+            <input
+                type="radio"
+                name="ticket"
+                value="Student + Certificate"
+            >
+            <label>Student + Certificate</label>
+
+        </div>
+
+
+        <label>
+            Comments:
+        </label>
+
+        <textarea
+            id="comments"
+            placeholder="Any requirements..."
+        ></textarea>
+
+
+        <button type="submit">
+            Book Ticket
+        </button>
+
+    </form>
+
+
+    <div id="message"></div>
+
+</div>
+
+
+<script src="workshop.js"></script>
+
+</body>
+
+</html>
