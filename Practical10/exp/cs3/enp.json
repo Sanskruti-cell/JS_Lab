@@ -1,0 +1,38 @@
+[
+    {
+        "employeeId": 101,
+        "employeeName": "Rahul Sharma",
+        "department": "Computer Science",
+        "salary": 45000
+    },
+    {
+        "employeeId": 102,
+        "employeeName": "Priya Patil",
+        "department": "Information Technology",
+        "salary": 50000
+    },
+    {
+        "employeeId": 103,
+        "employeeName": "Amit Verma",
+        "department": "Human Resources",
+        "salary": 40000
+    },
+    {
+        "employeeId": 104,
+        "employeeName": "Janhavi",
+        "department": "CSE",
+        "salary": 90000
+    },
+    {
+        "employeeId": 105,
+        "employeeName": "Devashish Itankar",
+        "department": "CSE",
+        "salary": 87000
+    },
+    {
+        "employeeId": 106,
+        "employeeName": "Arpita",
+        "department": "ee",
+        "salary": 90000
+    }
+]
